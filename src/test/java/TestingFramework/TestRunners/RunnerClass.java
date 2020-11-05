@@ -1,6 +1,7 @@
 package TestingFramework.TestRunners;
 
 import TestingFramework.StepDef.MyStepdefs;
+import TestingFramework.Utility.TempReportUtil;
 import TestingFramework.Utility.WebBrowserDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -40,6 +41,7 @@ public class RunnerClass{
         obj.webDriver.quit();
         report.endTest(MyStepdefs.testreport);
         report.flush();
+        TempReportUtil.show();
     }
 
 }

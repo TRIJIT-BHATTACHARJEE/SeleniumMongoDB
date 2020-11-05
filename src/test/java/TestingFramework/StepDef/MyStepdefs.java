@@ -2,6 +2,7 @@ package TestingFramework.StepDef;
 
 import TestingFramework.PageClasses.RestApiTestClass;
 import TestingFramework.PageClasses.TestClass;
+import TestingFramework.Utility.TempReportUtil;
 import TestingFramework.Utility.WebBrowserDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -41,11 +42,15 @@ public class MyStepdefs {
         @Before
         public void init (Scenario scenario){
         testreport = report.startTest("Scenario Name : " + scenario.getName());
+
+        //System.out.println("Now running test case : "+scenario.getName());
+
     }
 
         @After
-        public void tearDown () {
-
+        public void tearDown (Scenario scenario) {
+        //System.out.println(scenario.getName()+" got -> "+scenario.isFailed());
+            TempReportUtil.add(scenario.getName(),scenario.isFailed());
 
     }
 
